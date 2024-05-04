@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://blal73qxy8uy1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_q1a06"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h6qck"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bqk7f"]
+
+[node name="PairOfMeshes" type="Node3D"]
+
+[node name="SphereMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(34.005, 0, 0, 0, 34.005, 0, 0, 0, 34.005, -2.07146, 21.404, 13.7785)
+mesh = SubResource("SphereMesh_q1a06")
+
+[node name="CubeMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(34.005, 0, 0, 0, 34.005, 0, 0, 0, 34.005, -0.0200806, 8.62622, 103.506)
+mesh = SubResource("BoxMesh_h6qck")
+skeleton = NodePath("../SphereMesh")
+
+[node name="Brim" type="MeshInstance3D" parent="CubeMesh"]
+transform = Transform3D(1.73941, 0, 0, 0, 0.0121209, 0, 0, 0, 1.73941, -0.00220754, 0.512673, 0.0140185)
+mesh = SubResource("CylinderMesh_bqk7f")
+
+[node name="Top" type="MeshInstance3D" parent="CubeMesh/Brim"]
+transform = Transform3D(0.574909, 0, 0, 0, 53.6653, 0, 0, 0, 0.574909, 0, 54.3134, 0)
+mesh = SubResource("CylinderMesh_bqk7f")
+skeleton = NodePath("../..")

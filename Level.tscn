@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlmx2hhj0mcya"]
+
+[ext_resource type="PackedScene" uid="uid://blal73qxy8uy1" path="res://Meshes.tscn" id="1_qhv78"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib8tb"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ehg6o"]
+sky_material = SubResource("ProceduralSkyMaterial_ib8tb")
+
+[sub_resource type="Environment" id="Environment_8luj1"]
+background_mode = 2
+sky = SubResource("Sky_ehg6o")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8luj1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PairOfMeshes" parent="." instance=ExtResource("1_qhv78")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.818099, 0.330619, 0.470536, 0.0612883, 0.86368, -0.5003, -0.571802, -0.380457, -0.726839, 30.6315, -0.247894, 1.13925)
+
+[node name="zweiPolygonnetz" parent="." instance=ExtResource("1_qhv78")]
+transform = Transform3D(-1.18015, 1.13223, 2.82414, -1.006, -3.00397, 0.783939, 2.87152, -0.587073, 1.43532, -175.581, 176.071, 200.85)
+
+[node name="MesheLaDeu" parent="." instance=ExtResource("1_qhv78")]
+transform = Transform3D(-0.400729, 0, -0.486124, 0.199722, 0.574374, -0.164638, 0.443201, -0.258833, -0.365347, 86.7649, 57.2231, 187.638)
